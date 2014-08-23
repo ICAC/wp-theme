@@ -1,0 +1,207 @@
+body {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.site-content img {
+	max-width: 100%;
+	height: auto;
+}
+
+code {
+	white-space: normal;
+}
+
+.navbar-brand img {
+	height: 45px;
+}
+
+.entry-content p,
+.entry-summary p, 
+.comment-content p {
+	margin-bottom: 1.7rem;
+	line-height: 1.7;
+}
+
+.entry-header {
+	margin-bottom: 1.7rem;
+}
+
+.entry-meta, .nav-single {
+	margin-top: 1.7rem;
+}
+
+.comment-list {
+	list-style: none outside none;
+}
+.comment-list .children {
+	list-style: none outside none;
+}
+.comment-content  {
+	clear: both;
+	margin-top: 40px
+}
+.comment-meta img {
+ float: left;
+ margin-right: 40px; /* eq to ol padding-left */
+}
+
+.nav-next {
+	float: right;
+}
+
+.assistive-text {
+	display: none;
+}
+
+.text-muted a {
+	color: #806659; /* muted the colour */
+}
+.text-muted a:hover {
+	color: #99664D; /* muted the colour */
+}
+
+
+/*.comment-form-author,
+.comment-form-email,
+.comment-form-url,
+.comment-form-comment{
+	@extend .form-group;
+	
+	input,
+	textarea{
+		@extend .form-control;
+	}
+	
+	textarea{
+		height: auto;
+	}
+}*/
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url,
+.comment-form-comment {
+margin-bottom: 15px;
+}
+.comment-form-author input,
+.comment-form-email input,
+.comment-form-url input,
+.comment-form-comment input,
+.comment-form-author textarea,
+.comment-form-email textarea,
+.comment-form-url textarea,
+.comment-form-comment textarea {
+display: block;
+width: 100%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.428571429;
+color: #555555;
+vertical-align: middle;
+background-color: #ffffff;
+background-image: none;
+border: 1px solid #cccccc;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.comment-form-author input:focus,
+.comment-form-email input:focus,
+.comment-form-url input:focus,
+.comment-form-comment input:focus,
+.comment-form-author textarea:focus,
+.comment-form-email textarea:focus,
+.comment-form-url textarea:focus,
+.comment-form-comment textarea:focus {
+border-color: #66afe9;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.comment-form-author input:-moz-placeholder,
+.comment-form-email input:-moz-placeholder,
+.comment-form-url input:-moz-placeholder,
+.comment-form-comment input:-moz-placeholder,
+.comment-form-author textarea:-moz-placeholder,
+.comment-form-email textarea:-moz-placeholder,
+.comment-form-url textarea:-moz-placeholder,
+.comment-form-comment textarea:-moz-placeholder {
+color: #999999;
+}
+.comment-form-author input::-moz-placeholder,
+.comment-form-email input::-moz-placeholder,
+.comment-form-url input::-moz-placeholder,
+.comment-form-comment input::-moz-placeholder,
+.comment-form-author textarea::-moz-placeholder,
+.comment-form-email textarea::-moz-placeholder,
+.comment-form-url textarea::-moz-placeholder,
+.comment-form-comment textarea::-moz-placeholder {
+color: #999999;
+opacity: 1;
+}
+.comment-form-author input:-ms-input-placeholder,
+.comment-form-email input:-ms-input-placeholder,
+.comment-form-url input:-ms-input-placeholder,
+.comment-form-comment input:-ms-input-placeholder,
+.comment-form-author textarea:-ms-input-placeholder,
+.comment-form-email textarea:-ms-input-placeholder,
+.comment-form-url textarea:-ms-input-placeholder,
+.comment-form-comment textarea:-ms-input-placeholder {
+color: #999999;
+}
+.comment-form-author input::-webkit-input-placeholder,
+.comment-form-email input::-webkit-input-placeholder,
+.comment-form-url input::-webkit-input-placeholder,
+.comment-form-comment input::-webkit-input-placeholder,
+.comment-form-author textarea::-webkit-input-placeholder,
+.comment-form-email textarea::-webkit-input-placeholder,
+.comment-form-url textarea::-webkit-input-placeholder,
+.comment-form-comment textarea::-webkit-input-placeholder {
+color: #999999;
+}
+.comment-form-author input[disabled],
+.comment-form-email input[disabled],
+.comment-form-url input[disabled],
+.comment-form-comment input[disabled],
+.comment-form-author textarea[disabled],
+.comment-form-email textarea[disabled],
+.comment-form-url textarea[disabled],
+.comment-form-comment textarea[disabled],
+.comment-form-author input[readonly],
+.comment-form-email input[readonly],
+.comment-form-url input[readonly],
+.comment-form-comment input[readonly],
+.comment-form-author textarea[readonly],
+.comment-form-email textarea[readonly],
+.comment-form-url textarea[readonly],
+.comment-form-comment textarea[readonly],
+fieldset[disabled] .comment-form-author input,
+fieldset[disabled] .comment-form-email input,
+fieldset[disabled] .comment-form-url input,
+fieldset[disabled] .comment-form-comment input,
+fieldset[disabled] .comment-form-author textarea,
+fieldset[disabled] .comment-form-email textarea,
+fieldset[disabled] .comment-form-url textarea,
+fieldset[disabled] .comment-form-comment textarea {
+cursor: not-allowed;
+background-color: #eeeeee;
+}
+textarea.comment-form-author input,
+textarea.comment-form-email input,
+textarea.comment-form-url input,
+textarea.comment-form-comment input,
+textarea.comment-form-author textarea,
+textarea.comment-form-email textarea,
+textarea.comment-form-url textarea,
+textarea.comment-form-comment textarea {
+height: auto;
+}
+.comment-form-author textarea,
+.comment-form-email textarea,
+.comment-form-url textarea,
+.comment-form-comment textarea {
+height: auto;
+}
