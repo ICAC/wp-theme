@@ -4,8 +4,14 @@ require('includes/comment.php');
 require('includes/nav.php');
 require('includes/meta.php');
 
+// this is a fluid theme... however WP requires a max content width...
+if ( ! isset( $content_width ) ) $content_width = 900;
+
 function icac_setup() {
 	register_nav_menu( 'primary', __( 'Primary Menu', 'icac' ) );
+	
+	add_theme_support( 'automatic-feed-links' ); 
+	add_theme_support( 'post-thumbnails' );
 	
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
@@ -17,7 +23,6 @@ function icac_setup_css() {
 	$protocol = is_ssl() ? 'https' : 'http';
 	wp_enqueue_style( 'fonts', esc_url_raw( "$protocol://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" ), array(), null );
 
-
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/screen.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'bootstrap' );
 	
@@ -26,7 +31,7 @@ function icac_setup_css() {
 }
 add_action( 'wp_enqueue_scripts', 'icac_setup_css' );
 
-function theme_js(){
+function icac_setup_js(){
 	wp_register_script( 'bootstrap',
 		get_template_directory_uri() . '/js/bootstrap.min.js',
 		array('jquery'),
@@ -38,9 +43,37 @@ function theme_js(){
 		array('jquery'),
 		'1.2' );
 	wp_enqueue_script('modernizr');
+	
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'comment-reply' );
+  }
 }
-add_action( 'wp_enqueue_scripts', 'theme_js' );
+add_action( 'wp_enqueue_scripts', 'icac_setup_js' );
 
+function icac_setup_ie() {
+?>
+		<!--[if lt IE 9]>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+		<![endif]--> 
+<?php
+}
+add_action('wp_head', 'icac_setup_ie');
+
+function icac_setup_ie_footer() {
+?>
+	<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+<?php
+}
+add_action('wp_footer', 'icac_setup_ie_footer');
 
 function icac_widgets_init() {
 	register_sidebar( array(

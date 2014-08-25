@@ -5,23 +5,13 @@
 <!--[if IE 8 ]> <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 	<head>
-		<meta charset="utf-8">
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">		
 		
 		<?php wp_head(); ?>
-		
-		<!--[if lt IE 9]>
-			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<![endif]-->
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<!--[if lt IE 9]>
-			<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
-		<![endif]--> 
 	</head>
 	<body <?php body_class(); ?>>
 		<header class="navbar navbar-static-top archery-navbar" role="navigation">
@@ -34,7 +24,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?php echo get_option('home'); ?>">
+					<a class="navbar-brand" href="<?php echo home_url(); ?>">
 						<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" height="45">
 					</a>
 				</div>
@@ -46,7 +36,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s" id="s">
 							<span class="input-group-btn">
-								<button type="submit" class="btn btn-default"><?php echo __( 'Search' ); ?></button>
+								<button type="submit" class="btn btn-default"><?php echo __( 'Search', 'icac' ); ?></button>
 							</span>
 						</div>
 					</form>
