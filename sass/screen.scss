@@ -44,109 +44,9 @@ a {
 
 // header
 header.page-header {
-  .brand-image {  
-    background: url('../images/header3.jpg') no-repeat center center; 
-    @include background-size(cover);
-   
-    height: 300px;
-   
-    img {
-      height: 100px;
-      padding-left: $layout-gutter-width;
-    }
-  }
-  
-  .menu { 
-    @extend .md-shadow-bottom-z-1;
-  
-    background-color: $background-color-base;
-  
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    
-    li {
-      flex: 1;
-      flex-direction: row;
-      box-sizing: border-box;
-      display: flex;
-      
-      // active
-      &.current-menu-item {
-        > a {
-          color: $link-active-color;
-        }
-      }
-      
-      // dropdown
-      &.menu-item-has-children {
-        > a {
-          &:after {
-            content: '';
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #000;
-            display: inline-block;
-            margin-left: 4px;
-            vertical-align: middle;
-          }
-          &:hover:after {
-            border-top-color: $link-hover-color;
-          } 
-        }
-        
-        &.current-menu-item {
-          > a:after {
-            border-top-color: $link-active-color;
-          }
-        }
-      }
-      
-      a {
-        text-align: center;
-
-        color: $foreground-primary-color;
-        font-size: $h3-font-size-base;
-        
-        padding: $baseline-grid ($baseline-grid/2);
-        
-        text-decoration: none;
-        
-        &:hover {
-          color: $link-hover-color;
-        }
-      }
-      
-      // submenu
-      .sub-menu {
-        display: none;
-      }
-      &.menu-item-has-children:hover {
-        position: relative;
-        > .sub-menu {
-          @extend .md-shadow-bottom-z-2;
-
-          background-color: $background-color-base;
-
-          position: absolute;
-          top: 30px;
-          left: 0;
-          right: 0;
-          display: block;
-         
-          list-style-type: none;
-          padding: $baseline-grid ($baseline-grid/2);
-          margin: 0;
-
-         
-          a {
-            text-align: left;
-          }
-        }
-      }
-    }
-  }
+  @import "menu";
 }
+@import "menu-collapse";
 
 // content
 #primary {
@@ -172,7 +72,7 @@ p:first-child {
   margin-left: $layout-gutter-width;
 }
 
-#nav-below {
+.navigation {
   margin-top: -($layout-gutter-width/2);
   margin-left: $layout-gutter-width;
   margin-right: $layout-gutter-width;
