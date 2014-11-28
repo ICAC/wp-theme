@@ -1,349 +1,225 @@
-$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif;
+@import "color";
+@import "variables";
+@import "layout";
+@import "mixins";
+@import "structure";
 
-$default-color: #cc6633;
-$l-default-color: lighten($default-color, 15%);
-$ll-default-color: lighten($default-color, 35%);
-$d-default-color: darken($default-color, 15%);
-$dd-default-color: darken($default-color, 25%);
+@import "compass/support";
+@import "compass/css3/background-size";
 
-$brand-primary: #2682e8;
-$brand-success: #42cc14;
-$brand-info: #37caff;
-$brand-warning: #ffb72a;
-$brand-danger: #ff0b00;
-
-$link-color: $default-color;
-$headings-color: $dd-default-color;
-
-// Navbar
-$navbar-archery-color: $default-color;
-$navbar-archery-bg: #f8f8f8 !default;
-$navbar-archery-border: darken($navbar-archery-bg, 6.5%) !default;
-
-// Navbar links
-$navbar-archery-link-color: $default-color;
-$navbar-archery-link-hover-color: darken($navbar-archery-link-color, 15%);
-$navbar-archery-link-active-color: $headings-color;
-$navbar-archery-link-disabled-color: #ccc;
-
-// Navbar brand label
-$navbar-archery-brand-color: $dd-default-color;
-$navbar-archery-brand-hover-color: darken($navbar-archery-brand-color, 10%);
-
-// Navbar toggle
-$navbar-archery-toggle-hover-bg: #ddd;
-$navbar-archery-toggle-icon-bar-bg: $l-default-color;
-$navbar-archery-toggle-border-color: #ddd;
-
-@import "bootstrap";
-
-.navbar {
-  // remove the gap between the navbar and the jumbotron
-  margin-bottom: 0;
+body {
+  background-color: map-get($color-grey, '50');
+  height: auto;
+  min-height: 100%;
 }
 
-.jumbotron.banner {
-  background: url('../images/header3.jpg') no-repeat center center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+$link-color: map-get($primary-color-palette, '500');
+$link-hover-color: map-get($primary-color-palette, '300');
+$link-active-color:  map-get($primary-color-palette, '700');
+
+a {
+  color: $link-color; 
+  text-decoration: none;
   
-  height: 100px;
-  margin-bottom: 0;
-}
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  .jumbotron.banner {
-    height: 150px;
+  &:hover {
+    color: $link-hover-color;
+  }
+  
+  .active {
+    color: $link-active-color;
   }
 }
 
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-  .jumbotron.banner {
-    height: 250px;
-  }
-}
-
-@media (min-width: $screen-lg-min) {
-  .jumbotron.banner {
-    height: 300px;
-  }
-}
-
-
-
-.archery-navbar {
-  border-bottom: 0;
-
-  .navbar-brand {
-    font-size: ceil(($font-size-base * 1.7));
-    color: $navbar-archery-brand-color;
-    padding-top: 5px;
+.text-muted {
+  color: map-get($color-grey, '500');
+  
+  a {
+    color: $link-active-color;
     
-    &:hover,
-    &:focus {
-      color: $navbar-archery-brand-hover-color;
-    }
-  }
-
-  .navbar-text {
-    color: $navbar-archery-color;
-  }
-
-  .navbar-nav {
-    > li > a {
-      color: $navbar-archery-link-color;
-
-      text-transform: uppercase;
-      font-weight: bold;
-      
-      &:hover,
-      &:focus {
-        color: $navbar-archery-link-hover-color;
-        background-color: transparent;
-      }
-    }
-    > .active > a {
-      color: $navbar-archery-link-active-color;
-    }
-    > .disabled > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $navbar-archery-link-disabled-color;
-      }
-    }
-  }
-
-  .navbar-toggle {
-    border-color: $navbar-archery-toggle-border-color;
-    &:hover,
-    &:focus {
-      background-color: $navbar-archery-toggle-hover-bg;
-    }
-    .icon-bar {
-      background-color: $navbar-archery-toggle-icon-bar-bg;
-    }
-  }
-
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $navbar-archery-border;
-  }
-
-  // Dropdown menu items
-  .navbar-nav {
-    // Remove background color from open dropdown
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $navbar-archery-link-active-color;
-      }
-    }
-
-    @media (max-width: $grid-float-breakpoint-max) {
-      // Dropdowns get custom display when collapsed
-      .open .dropdown-menu {
-        > li > a {
-          color: $navbar-archery-link-color;
-          &:hover,
-          &:focus {
-            color: $navbar-archery-link-hover-color;
-          }
-        }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-archery-link-active-color;
-          }
-        }
-        > .disabled > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-archery-link-disabled-color;
-          }
-        }
-      }
-    }
-  }
-
-
-  // Links in navbars
-  //
-  // Add a class to ensure links outside the navbar nav are colored correctly.
-
-  .navbar-link {
-    color: $navbar-archery-link-color;
     &:hover {
-      color: $navbar-archery-link-hover-color;
+      color: $link-color;
     }
   }
 }
 
-// Wordpress Integration
-
-.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-.aligncenter,
-div.aligncenter {
-    display: block;
-    margin: 5px auto 5px auto;
-}
-
-.alignright {
-    float:right;
-    margin: 5px 0 20px 20px;
-}
-
-.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
-
-.aligncenter {
-    display: block;
-    margin: 5px auto 5px auto;
-}
-
-a img.alignright {
-    float: right;
-    margin: 5px 0 20px 20px;
-}
-
-a img.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-a img.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
-
-a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
-.wp-caption {
-    background: #fff;
-    border: 1px solid #f0f0f0;
-    max-width: 96%; /* Image does not overflow the content area */
-    padding: 5px 3px 10px;
-    text-align: center;
-}
-
-.wp-caption.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-.wp-caption.alignleft {
-    margin: 5px 20px 20px 0;
-}
-
-.wp-caption.alignright {
-    margin: 5px 0 20px 20px;
-}
-
-.wp-caption img {
-    border: 0 none;
-    height: auto;
-    margin: 0;
-    max-width: 98.5%;
+// header
+header.page-header {
+  .brand-image {  
+    background: url('../images/header3.jpg') no-repeat center center; 
+    @include background-size(cover);
+   
+    height: 300px;
+   
+    img {
+      height: 100px;
+      padding-left: $layout-gutter-width;
+    }
+  }
+  
+  .menu { 
+    @extend .md-shadow-bottom-z-1;
+  
+    background-color: $background-color-base;
+  
+    list-style-type: none;
     padding: 0;
-    width: auto;
-}
-
-.wp-caption p.wp-caption-text {
-    font-size: 11px;
-    line-height: 17px;
     margin: 0;
-    padding: 0 4px 5px;
+    
+    li {
+      flex: 1;
+      flex-direction: row;
+      box-sizing: border-box;
+      display: flex;
+      
+      // active
+      &.current-menu-item {
+        > a {
+          color: $link-active-color;
+        }
+      }
+      
+      // dropdown
+      &.menu-item-has-children {
+        > a {
+          &:after {
+            content: '';
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #000;
+            display: inline-block;
+            margin-left: 4px;
+            vertical-align: middle;
+          }
+          &:hover:after {
+            border-top-color: $link-hover-color;
+          } 
+        }
+        
+        &.current-menu-item {
+          > a:after {
+            border-top-color: $link-active-color;
+          }
+        }
+      }
+      
+      a {
+        text-align: center;
+
+        color: $foreground-primary-color;
+        font-size: $h3-font-size-base;
+        
+        padding: $baseline-grid ($baseline-grid/2);
+        
+        text-decoration: none;
+        
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+      
+      // submenu
+      .sub-menu {
+        display: none;
+      }
+      &.menu-item-has-children:hover {
+        position: relative;
+        > .sub-menu {
+          @extend .md-shadow-bottom-z-2;
+
+          background-color: $background-color-base;
+
+          position: absolute;
+          top: 30px;
+          left: 0;
+          right: 0;
+          display: block;
+         
+          list-style-type: none;
+          padding: $baseline-grid ($baseline-grid/2);
+          margin: 0;
+
+         
+          a {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
 }
 
-.sticky,
-.bypostauthor,
-.gallery-caption {
-	/* unused*/
+// content
+#primary {
+
+  .card {
+    @extend .md-shadow-bottom-z-1;
+
+    margin: $layout-gutter-width;
+    padding: $layout-gutter-width;
+    background-color: $background-color-base;
+  }
 }
 
-.site-content img {
-	max-width: 100%;
-	height: auto;
+p:first-child {
+  margin-top: 0;
 }
 
-code {
-	white-space: normal;
+.entry-title {
+  margin: 0;
 }
 
-.navbar-brand img {
-	height: 45px;
+.archive-header {
+  margin-left: $layout-gutter-width;
 }
 
-.entry-content p,
-.entry-summary p, 
-.comment-content p {
-	margin-bottom: 1.7rem;
-	line-height: 1.7;
+#nav-below {
+  margin-top: -($layout-gutter-width/2);
+  margin-left: $layout-gutter-width;
+  margin-right: $layout-gutter-width;
+
+  .nav-previous {
+    
+  }
+  
+  .nav-next {
+    text-align: right;
+  }
 }
 
-.entry-header {
-	margin-bottom: 1.7rem;
+// widgets
+#secondary {
+  padding: $layout-gutter-width;
 }
 
-.entry-meta, .nav-single {
-	margin-top: 1.7rem;
+.widget {
+  font-size: $h5-font-size-base;
+  
+  .widget-title {
+    margin-bottom: 0;
+  }
+  &:first-child .widget-title {
+    margin-top: 0;
+  }
+
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  
+    li {
+      padding: ($layout-gutter-width/2) 0;
+
+      border-top: 1px solid map-get($color-grey, '200');
+      
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
 }
 
-.comment-list {
-	list-style: none outside none;
-}
-.comment-list .children {
-	list-style: none outside none;
-}
-.comment-content  {
-	clear: both;
-	margin-top: 40px
-}
-.comment-meta img {
- float: left;
- margin-right: 40px; // eq to ol padding-left
-}
-
-.nav-next {
-	float: right;
-}
-
-.assistive-text {
-	display: none;
-}
-
-.text-muted a {
-	color: #806659; //TODO muted the colour, make rel to $default-color
-}
-.text-muted a:hover {
-	color: #99664D; //TODO muted the colour, make rel to $default-color
-}
-
-
-.comment-form-author,
-.comment-form-email,
-.comment-form-url,
-.comment-form-comment{
-	@extend .form-group;
-	
-	input,
-	textarea{
-		@extend .form-control;
-	}
-	
-	textarea{
-		height: auto;
-	}
+// footer
+footer.page-footer {
+  padding: $layout-gutter-width;
 }

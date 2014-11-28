@@ -21,22 +21,20 @@ add_action( 'after_setup_theme', 'icac_setup' );
 
 function icac_setup_css() {
 	$protocol = is_ssl() ? 'https' : 'http';
-	wp_enqueue_style( 'fonts', esc_url_raw( "$protocol://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" ), array(), null );
+    
+	wp_enqueue_style( 'fonts', esc_url_raw( "$protocol://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic" ), array(), null );
 
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/screen.css', array(), '1.0', 'all' );
-	wp_enqueue_style( 'bootstrap' );
-	
-	wp_register_style( 'temp', get_template_directory_uri() . '/css/temp.css', array(), '1.0', 'all' );
-	wp_enqueue_style( 'temp' );
+	wp_register_style( 'icac', get_template_directory_uri() . '/css/screen.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'icac' );
 }
 add_action( 'wp_enqueue_scripts', 'icac_setup_css' );
 
 function icac_setup_js(){
-	wp_register_script( 'bootstrap',
-		get_template_directory_uri() . '/js/bootstrap.min.js',
+	wp_register_script( 'icac',
+		get_template_directory_uri() . '/js/icac.js',
 		array('jquery'),
 		'1.2' );
-	wp_enqueue_script('bootstrap');
+	wp_enqueue_script('icac');
 
 	wp_register_script( 'modernizr',
 		get_template_directory_uri() . '/js/modernizr.min.js',

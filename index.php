@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div id="primary" class="site-content col-md-8">
+	<div id="primary" flex-gt-md="75">
 		<div id="content" role="main">
 		<?php if ( have_posts() ) : ?>
 

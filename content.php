@@ -1,4 +1,4 @@
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
 		<header class="entry-header">
 			<?php if ( ! post_password_required() && ! is_attachment() ) :
 				the_post_thumbnail();
